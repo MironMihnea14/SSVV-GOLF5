@@ -2,7 +2,7 @@ package ssvv.example.repository;
 
 import domain.Student;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import repository.StudentRepository;
 import repository.StudentXMLRepository;
 import validation.StudentValidator;
