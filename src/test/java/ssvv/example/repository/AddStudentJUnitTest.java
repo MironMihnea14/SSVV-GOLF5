@@ -13,7 +13,7 @@ public class AddStudentJUnitTest {
     private StudentRepository studentRepository = new StudentRepository(new StudentValidator());
 
     @Test
-    public void testValidEntity_shouldWork() {
+    public void testValidEntityWorks() {
         Student student = new Student("1", "George", 932, "george@ubbcluj.ro", "Marcel");
 
         assertDoesNotThrow(() -> studentRepository.save(student));
@@ -54,15 +54,6 @@ public class AddStudentJUnitTest {
 
         assertThrows(Exception.class, () -> studentRepository.save(student));
     }
-
-//    @Test
-//    public void testDuplicateEntity_shouldThrowError() {
-//        Student student = new Student("1", "George", 932, "george@ubbcluj.ro", "Marcel");
-//
-//        assertDoesNotThrow(() -> studentRepository.save(student));
-//
-//        assertThrows(ValidationException.class, () -> studentRepository.save(student));
-//    }
 
     @Test
     public void testInvalidEmail_shouldThrowError() {
@@ -207,14 +198,6 @@ public class AddStudentJUnitTest {
 
         assertEquals(1, studentRepository.findAll().spliterator().estimateSize());
     }
-
-
-//    @Test
-//    public void testGroup0() {
-//        Student student = new Student("1", "George", 0, "george@ubbcluj.ro", "Marcel");
-//
-//        assertThrows(ValidationException.class, () -> studentRepository.save(student));
-//    }
 
     @Test
     public void testGroup1() {
