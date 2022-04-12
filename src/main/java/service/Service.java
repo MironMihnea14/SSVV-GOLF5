@@ -18,6 +18,7 @@ public class Service {
         this.notaXmlRepo = notaXmlRepo;
     }
 
+
     public Iterable<Student> findAllStudents() { return studentXmlRepo.findAll(); }
 
     public Iterable<Tema> findAllTeme() { return temaXmlRepo.findAll(); }
@@ -36,12 +37,14 @@ public class Service {
 
     public int saveTema(String id, String descriere, int deadline, int startline) {
         Tema tema = new Tema(id, descriere, deadline, startline);
-        Tema result = temaXmlRepo.save(tema);
-
-        if (result == null) {
+        try {
+            Tema result = temaXmlRepo.save(tema);
             return 1;
         }
-        return 0;
+        catch (Exception e) {
+            return 0;
+        }
+
     }
 
     public int saveNota(String idStudent, String idTema, double valNota, int predata, String feedback) {

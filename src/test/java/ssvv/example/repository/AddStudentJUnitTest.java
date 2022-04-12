@@ -69,6 +69,7 @@ public class AddStudentJUnitTest {
         assertThrows(Exception.class, () -> studentRepository.save(student));
     }
 
+
     @Test
     public void testId2ThrowsError() {
         Student student = new Student("2", "George", 932, "george@ubbcluj.ro", "Marcel");
