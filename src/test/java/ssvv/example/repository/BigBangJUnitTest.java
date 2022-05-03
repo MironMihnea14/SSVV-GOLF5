@@ -5,6 +5,7 @@ import domain.Pair;
 import domain.Student;
 import domain.Tema;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repository.*;
 import validation.NotaValidator;
@@ -20,12 +21,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BigBangJUnitTest {
 
-    private static StudentRepository studentRepository;
-    private static TemaRepository temaRepository;
-    private static NotaRepository notaRepository;
+    private  StudentRepository studentRepository;
+    private  TemaRepository temaRepository;
+    private  NotaRepository notaRepository;
 
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         studentRepository = new StudentRepository(new StudentValidator());
         temaRepository = new TemaRepository(new TemaValidator());
         notaRepository = new NotaRepository(new NotaValidator());
@@ -128,8 +129,8 @@ public class BigBangJUnitTest {
                         Collectors.toList()
                 );
 
-        assertEquals(2, studentList.size());
-        assertEquals(2, assignmentList.size());
-        assertEquals(2, gradesList.size());
+        assertEquals(1, studentList.size());
+        assertEquals(1, assignmentList.size());
+        assertEquals(1, gradesList.size());
     }
 }
