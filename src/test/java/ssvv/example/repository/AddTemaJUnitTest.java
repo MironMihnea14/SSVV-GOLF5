@@ -3,8 +3,6 @@ package ssvv.example.repository;
 import domain.Tema;
 import org.junit.jupiter.api.Test;
 import repository.TemaRepository;
-import repository.TemaXMLRepository;
-import service.Service;
 import validation.TemaValidator;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,7 +42,7 @@ public class AddTemaJUnitTest {
 
     @Test
     public void testUnsuccesfulAdd_StartlineHigherThanDeadline() {
-        assertThrows(Exception.class,() -> temaRepository.save(new Tema("22", "Cea mai grea tema", 14, 15)));
+        assertThrows(Exception.class,() -> temaRepository.save(new Tema("22", "Cea mai grea tema", 11, 13)));
 
     }
 

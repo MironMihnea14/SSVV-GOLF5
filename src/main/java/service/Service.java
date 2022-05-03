@@ -25,8 +25,8 @@ public class Service {
 
     public Iterable<Nota> findAllNote() { return notaXmlRepo.findAll(); }
 
-    public int saveStudent(String id, String nume, int grupa) {
-        Student student = new Student(id, nume, grupa);
+    public int saveStudent(String id, String nume, int grupa, String email, String teacherName) {
+        Student student = new Student(id, nume, grupa, email, teacherName);
         Student result = studentXmlRepo.save(student);
 
         if (result == null) {
